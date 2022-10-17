@@ -11,15 +11,18 @@
 #include <cmath>
 
 int main (){
-    int Array[5];
-    int i;
+    do{
+        int Array[5];
+        int i;
 
-    for(i = 0; i < 5; i++){
-        std::cin >> Array[i];
-    }
-    for(i = 0; i < 5; i ++){
-        std::cout << Array[i] << std::endl;
-    }
+        for(i = 0; i < 5; i++){
+            std::cin >> Array[i];
+        }
+        for(i = 0; i < 5; i ++){
+            std::cout << Array[i] << std::endl;
+        }
+        
+    } while(true);
 
     return 0;
     
