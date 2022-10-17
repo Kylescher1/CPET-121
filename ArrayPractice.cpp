@@ -21,7 +21,7 @@ int main (){
         for(i = 0; i < 5; i ++){
             std::cout << Array[i] << std::endl;
         }
-        
+
     } while(true);
 
     return 0;
