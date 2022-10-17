@@ -2,3 +2,6 @@
 .log
 .gitattributes
 .exe
+.vcxproj
+.vc
+.vscode
