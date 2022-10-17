@@ -1,6 +1,6 @@
 // ********************************************************
 // Title: 
-// Course: CPET-121
+// Course:  CPET-121
 // Developer: Kyle Scher
 // Date: 10/17/22
 // Description: Converts Time values of Seconds, Minutes and Hours
