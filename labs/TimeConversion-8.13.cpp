@@ -22,6 +22,8 @@ int main() {
 
     std::cout << "Starting seconds of " << startSeconds << " is equivalent to " << hours <<" hour(s) and "  << minutes << " minute(s) and " << seconds << " second(s)." << std::endl;
 
+    return 0;
+    
 }
 
 
