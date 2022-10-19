@@ -46,6 +46,8 @@ int main(){
         std::cout << "Item # " << i + 1 << " cost is $ " << std::setw(5) << std::right << std::fixed << std::setprecision(2) << priceStart[i] << " and the selling price is $ " << std::setw(5) << std::right << std::fixed << std::setprecision(2) << itemPrice[i] <<  std::endl;
     }
 
+    std::cout << std::endl;
+
     return 0;
 }
 
