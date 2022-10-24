@@ -1,0 +1,5 @@
+vector<int> years (3);
+vector: creating vector
+<int>: data type
+years: Name of vector
+(3): number of elements
