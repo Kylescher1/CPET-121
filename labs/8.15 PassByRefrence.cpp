@@ -1,3 +1,12 @@
+// ********************************************************
+// Title: Price Markup calculator
+// Course: CPET-121
+// Developer: Kyle Scher
+// Date: 10/17/22
+// Description: Converts Intial price to Final price with markups
+// ********************************************************
+
+
 #include <iostream>
 #include <iomanip>
 

@@ -1,9 +1,18 @@
+// ********************************************************
+// Title: Price Markup calculator
+// Course: CPET-121
+// Developer: Kyle Scher
+// Date: 10/17/22
+// Description: Converts Intial price to Final price with markups
+// ********************************************************
+
+
 #include <iostream>
 #include <cmath>
 #include <iomanip>
 
 
-void MarkUpPrice(double * priceStart, double *itemPrice) {
+void MarkUpPrice(double *priceStart, double *itemPrice) {
 
     for(int i = 0; i < 5; ++i) {
         if(priceStart[i] <= 1){
@@ -18,9 +27,7 @@ void MarkUpPrice(double * priceStart, double *itemPrice) {
             itemPrice[i] = (priceStart[i] * 0.05) + priceStart[i];
         }
     }
-
 }
-
 
 int main(){
 
@@ -28,9 +35,7 @@ int main(){
 
     double itemPrice[5];
 
-    double *p, *s;
-    p = itemPrice;
-    s = priceStart;
+
     
     int i = 0;
 
@@ -39,7 +44,7 @@ int main(){
         std::cin >> priceStart[i];
     }
 
-    MarkUpPrice(s , p);
+    MarkUpPrice(priceStart , itemPrice);
 
 
     for(i = 0; i < 5; i++){
