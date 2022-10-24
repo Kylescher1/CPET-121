@@ -1,7 +1,7 @@
-.vscode
-.log
-.gitattributes
-.exe
+*.vscode
+*.log
+*.gitattributes
+*.exe
 .vcxproj
 .vc
 .vscode.vscode
