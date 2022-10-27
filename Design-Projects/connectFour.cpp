@@ -8,7 +8,7 @@ bool winCheck(int board);
 
 
 int main(){
-    int playerTurn = 0;;
+    int playerTurn = 0;
     bool gameWin = false;
     int userInput, userClm, board;
     int board[6][7];
@@ -20,7 +20,7 @@ int main(){
         //ADD Change Player Turn
 
         if(playerTurn = 1){
-            userMove(userInput);
+            int userClm = userMove(userInput);
 
             boardFunc(&userClm, &board);
 
@@ -45,8 +45,6 @@ int userMove(int userInput){
 
 
 int * boardFunc(int *userClm, int *board){
-	int board[6][7];
-    int i = 0;
     int clm = *userClm;
 
     for(int i = 0; i < 6; i++){
