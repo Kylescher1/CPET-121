@@ -26,27 +26,28 @@ int main() {
       std::cin >> vect.at(i);
    }
    
-   std::cout << std::endl << "Original Vector"<< std::endl;
+   std::cout << std::endl << "Original vector"<< std::endl;
    for(int i = 0; i < 5; i++){
     cout <<vect.at(i) << "  ";
    }
    std::cout<<std::endl;
 
-   std::cout << "The size of the Original Vector is : " << vect.size() << std::endl;
+   std::cout << "The size of the Original vector is : " << vect.size() << std::endl;
 
    for(int i = 5; i < 7; i++){
     std::cin >> value;
     vect.push_back(value);
    }
 
-
-    std::cout << "Revised Vector " << std::endl;
-    for(int i = 0; i < 5; i++){
-        cout <<vect.at(i) << "  ";
+   std::cout << std::endl;
+   
+   std::cout << "Revised vector" << std::endl;
+   for(int i = 0; i < 7; i++){
+      cout <<vect.at(i) << "  ";
    }
+   std::cout << endl;
 
-
-   std::cout << "The size of the resized vector is : " << std::endl << vect.size() << std::endl;
+   std::cout << "The size of the Revised vector is : "  << vect.size() << std::endl;
 
    return 0;
 }
