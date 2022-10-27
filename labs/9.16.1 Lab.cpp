@@ -20,19 +20,14 @@ using namespace std;
 int main() {
 
    int value;
-   int NUM_ITEMS = 0;
 
    vector<int> vect;
 
    do {
-      if()
-      NUM_ITEMS = NUM_ITEMS + 1;
+
       std::cin >> value;
-      if(NUM_ITEMS < 9 && value > 0){
+      if(vect.size() <= 9 && value > 0){
          vect.push_back(value);
-      }
-      else if(NUM_ITEMS > 9){
-         break;
       }
       else{
          break;
@@ -41,8 +36,8 @@ int main() {
    }while(value > 0);
 
 
-   if(NUM_ITEMS < 9){
-      std::cout <<"Middle item: " << vect.at((NUM_ITEMS / 2) - 1) << std::endl;
+   if(vect.size() <= 9){
+      std::cout <<"Middle item: " << vect.at((vect.size() / 2) ) << std::endl;
    }
    else{
       std::cout << "Too many numbers" << std::endl;
