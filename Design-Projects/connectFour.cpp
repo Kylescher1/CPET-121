@@ -6,14 +6,19 @@ bool userInput(int userTurn, int board[][7], int *R, int *C){
     int userClm;
     std::cin >> userClm;
     
-    for(int i = 0; i < 7; i++){
-        if(board[i][userClm - 1] == 0 ){
-            *R = i;
-            *C = userClm - 1;
-            return true;
+    if(userClm > 0 && userClm < 7){
+        for(int i = 0; i < 7; i++){
+            if(board[i][userClm - 1] == 0 ){
+                *R = i;
+                *C = userClm - 1;
+                return true;
+            }
         }
     }
-    return false;
+    else{
+         return false;
+    }
+  
 
     //Checks the location
     //Edits *C and *R 
