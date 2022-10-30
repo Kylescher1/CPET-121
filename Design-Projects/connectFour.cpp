@@ -18,10 +18,7 @@ bool userInput(int userTurn, int board[][7], int *R, int *C){
     else{
          return (false);
     }
-  
 
-    //Checks the location
-    //Edits *C and *R 
 }
 
 bool winFunc(int board[][7], bool win){
@@ -68,7 +65,7 @@ int main(){
         }
 
 
-        if(validMove){
+        if(validMove){ 
             std::cout << "  1   2   3   4   5   6   7 " << std::endl;
             std::cout <<"-----------------------------" << std::endl;
             for(int i = 5; i >= 0; i--){
@@ -78,7 +75,7 @@ int main(){
                         std::cout << "X";
                     }
                     else if (board[i][j] == 2){
-                        std::cout << "O";
+                        std::cout << "O";                                        
                     }
                     else {
                         std::cout << " ";
