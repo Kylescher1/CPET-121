@@ -22,7 +22,33 @@ bool userInput(int userTurn, int board[][7], int *R, int *C){
 }
 
 bool winFunc(int board[][7], bool win){
-
+    int count = 0;
+    int curP = 0;
+    //Player One win
+    
+     for(int i = 0; i < 6; i++){
+        for(int j = 0; j < 7; j++){ //Horizontal Win Check
+            if(board[j][i] == 1 ){
+                count += 1;
+                curP = 1;
+                if(count >= 4){
+                    return true;
+                }
+            }
+            else if(board[j][i] == 2 && curP != 1){
+                count += 1;
+                curP == 2;
+                if(count >= 4){
+                    return true;
+                }
+            }
+            else{
+                count == 0;
+                continue;
+            }
+        }
+    }
+    
     return(win);
 }
 
@@ -91,11 +117,31 @@ int main(){
         }
 
         winCheck = winFunc(board, winCheck);
+    
 
 
     } while(!winCheck);
 
 
+    std::cout << "WIN" << std::endl;
+    std::cout << "  1   2   3   4   5   6   7 " << std::endl;
+    std::cout <<"-----------------------------" << std::endl;
+    for(int i = 5; i >= 0; i--){
+        for(int j = 0; j < 7; j ++){
+            std::cout <<"| "; 
+            if(board[i][j] == 1){
+                std::cout << "X";
+            }
+            else if (board[i][j] == 2){
+                std::cout << "O";                                        
+            }
+            else {
+                std::cout << " ";
+            }
+            std::cout << " ";
+        }
+        std::cout << "|" << std::endl;
+    }
 
 
 
