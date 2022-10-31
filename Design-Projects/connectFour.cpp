@@ -30,6 +30,8 @@ bool userInput(int userTurn, int board[][7], int *R, int *C){ // User Input func
             continue;
         }
     }while(userClm);
+
+    return 0;
 }
 
 bool winFunc(int board[][7], bool win){ // Win Check
@@ -38,7 +40,7 @@ bool winFunc(int board[][7], bool win){ // Win Check
 
     //Horizontal Win Check
     for(int i = 0; i < 6; i++){
-        for(int j = 0; j < 7; j++){ 
+        for(int j = 0; j < 4; j++){ 
             if(board[i][j] != 0){
                 count += 1;
                 for(int k = 1; k < 5; k++){
@@ -66,9 +68,9 @@ bool winFunc(int board[][7], bool win){ // Win Check
         for(int j = 0; j < 7; j++){ 
             if(board[i][j] != 0){
                 count += 1;
-                for(int k = 1; k < 5; k++){
+                for(int k = 1; k < 4; k++){
                     curP = board[i][j];
-                    if(board[j + k][i] == curP){
+                    if(board[i + k][j] == curP){
                         count += 1;
                         if(count == 4){
                             return true;
@@ -104,17 +106,45 @@ bool winFunc(int board[][7], bool win){ // Win Check
                         break;
                     }
                 }
+               
             }
             else{
                 count = 0;
             }
         }
     }
+
+    //Backwards Diagonal Win Check
+    for(int i = 6; i >= 0; i--){
+        for(int j = 0; j <= 3; j++){ 
+            if(board[i][j] != 0){
+                count += 1;
+                for(int k = 1; k < 4; k++){
+                    curP = board[i][j];
+                    if(board[i - k][k + j] == curP){
+                        count += 1;
+                        if(count == 4){
+                            return true;
+                        }
+                    }
+                    else {
+                        count = 0;
+                        break;
+                    }
+                }
+               
+            }
+            else{
+                count = 0;
+            }
+        }
+    }
+
     return(win);
 }
 
 int startFunc(int userTurn){
-    userTurn = std::rand() %  2;
+    userTurn = std::rand() %  2 + 1;
     std::cout << "         Welcome to Connect4!" << std::endl << "The goal is to have 4 X's or O's in a row!" << std::endl;
     std::cout << "   Player: " << userTurn << " was selected to go first " << std::endl;
     std::cout << "\n\n     Please enter your first move: \n";
@@ -127,7 +157,7 @@ int displayFunc(int board[][7]){
     std::cout << "  1   2   3   4   5   6   7 " << std::endl;
     std::cout <<"-----------------------------" << std::endl;
     for(int i = 5; i >= 0; i--){
-        for(int j = 0; j < 6; j ++){
+        for(int j = 0; j < 7; j ++){
             std::cout <<"| "; 
             if(board[i][j] == 1){
                 std::cout << "X";
@@ -143,6 +173,8 @@ int displayFunc(int board[][7]){
         std::cout << "|" << std::endl;
     }
     std::cout <<"-----------------------------" << std::endl;
+
+    return 0;
 }
 
 int main(){
@@ -154,16 +186,15 @@ int main(){
     bool winCheck = false;
     int playerWin, user1W = 0, user2W = 0;
     std::string nextGame;
-    
+
     while(nextGame != "N"){
-        userTurn = startFunc(userTurn);
-    
-        
         for(int i = 0; i < 6; i++){ //Clears Board
             for(int j = 0; j < 7; j ++){
                 board[i][j] = 0;
             }
         }
+
+        userTurn = startFunc(userTurn);
     
         while(!winCheck){
 
@@ -177,7 +208,7 @@ int main(){
                     winCheck = winFunc(board, winCheck);
                     playerWin = 1;
                     if(winCheck){
-                        user1W =+ 1;
+                        user1W++;
                         break;
                     }
                     else{
@@ -195,7 +226,7 @@ int main(){
                     winCheck = winFunc(board, winCheck);
                     playerWin = 2;
                     if(winCheck){
-                        user2W =+ 1;
+                        user2W++;
                         break;
                     }
                     else{ 
@@ -213,7 +244,7 @@ int main(){
         std::cout <<"Player #1 Wins :" << user1W;
         std::cout <<"\nPlayer #2 Wins :" << user2W;
         std::cout <<"\n-----------------------------" << std::endl;
-        std::cout <<"If you would to continue please enter , to quit enter N  [Y/N]:";
+        std::cout <<"Would you like to continue? [Y/N] :";
         std::cin >> nextGame;
 
         if(nextGame == "N"){
