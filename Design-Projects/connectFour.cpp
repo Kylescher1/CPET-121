@@ -4,6 +4,7 @@
 
 bool userInput(int userTurn, int board[][7], int *R, int *C){ // User Input function
     int userClm;//Selected user column
+    int count;
     
     do{
         std::cout << "Player #" << userTurn <<"'s Turn ("; 
@@ -17,6 +18,21 @@ bool userInput(int userTurn, int board[][7], int *R, int *C){ // User Input func
 
         std::cin >> userClm;
         if(userClm > 0 && userClm <= 7){
+            for(int i = 0; i < 6; i++){
+                for(int j = 1; j < 7; j++){
+                    if(board[i][j] != 0){
+                        count += 1;
+                        if(count >= 6){
+                            count == 0;
+                            break;
+                        }
+                    }
+                    else{
+                        std::cout << " \n\n Invalid move column is FULL \n" << std::endl;
+                        continue;
+                    }
+                }
+            }
             for(int i = 0; i < 7; i++){
                 if(board[i][userClm - 1] == 0 ){
                     *R = i;
@@ -24,11 +40,13 @@ bool userInput(int userTurn, int board[][7], int *R, int *C){ // User Input func
                     return true;
                 }
             }
+
         }
         else{
             std::cout << " \n\n Invalid move please try again \n" << std::endl;
             continue;
         }
+        
     }while(userClm);
 
     return 0;
