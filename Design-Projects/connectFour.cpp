@@ -34,7 +34,7 @@ bool userInput(int userTurn, int board[][7], int *R, int *C){ // User Input func
 
 bool winFunc(int board[][7], bool win){ // Win Check
     int count = 0;
-    int curP; // Current Piece test
+    int curP; // Current Piece
 
     //Horizontal Win Check
     for(int i = 0; i < 6; i++){
@@ -243,6 +243,7 @@ int main(){
                 }
             }
         }
+        //Working version
     }
 
     return (0);
