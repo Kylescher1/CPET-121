@@ -2,10 +2,103 @@
 #include <iomanip>
 #include <vector>
 
+
+bool userInput(int userTurn, int board[][7], int *R, int *C); //User Input Function
+
+bool winFunc(int board[][7], bool win); //Win checks
+
+int startFunc(int userTurn); //initialize the game
+
+int displayFunc(int board[][7]); //Displays the current board...Stores no data
+
+
+
+int main(){
+    int board[6][7]; //Main board
+    int userClm = 0, userTurn = 1, C,R, playerWin, user1W = 0, user2W = 0; //user12W are to track wins, userClm is for inputs
+    bool validMove = true, winCheck = false;
+    std::string nextGame;
+
+    while(nextGame != "N"){ //Quits the main game loop if 
+        for(int i = 0; i < 6; i++){ //Clears Board
+            for(int j = 0; j < 7; j ++){
+                board[i][j] = 0;
+            }
+        }
+
+        userTurn = startFunc(userTurn); //Game Starts
+    
+        while(!winCheck){
+
+            if(userTurn == 1){ //Main logic
+                validMove = userInput(userTurn, board, &R, &C); //Checks valid move
+                if(validMove == true){
+                    board[R][C] = 1;
+                    userTurn = 2;
+                    R = 0;
+                    C = 0;
+                    winCheck = winFunc(board, winCheck);//Checks win
+                    playerWin = 1;
+                    if(winCheck){
+                        user1W++;
+                        break;
+                    }
+                    else{
+                        displayFunc(board);//Output board
+                    }
+                }
+            }
+            else if(userTurn == 2){//Same as if statement above but for user #2
+                validMove = userInput(userTurn, board, &R, &C);
+                if(validMove == true){
+                    board[R][C] = 2;
+                    userTurn = 1;
+                    R = 0;
+                    C = 0;
+                    winCheck = winFunc(board, winCheck);
+                    playerWin = 2;
+                    if(winCheck){
+                        user2W++;
+                        break;
+                    }
+                    else{ 
+                        displayFunc(board);
+                    }
+                
+                }
+            }
+        }
+
+        //Output for win situation  
+        displayFunc(board); 
+        std::cout <<"-----------------------------" << std::endl;
+        std::cout << "Player #" << playerWin << " has won! \n";
+        std::cout << "Statistics: \n";
+        std::cout <<"Player #1 Wins :" << user1W;
+        std::cout <<"\nPlayer #2 Wins :" << user2W;
+        std::cout <<"\n-----------------------------" << std::endl;
+        std::cout <<"Would you like to continue? [Y/N] :";
+        std::cin >> nextGame;
+
+        //Game loop
+        if(nextGame == "N"){
+            break;
+        }
+        else{
+            std::cout << "\n\n\n\n";
+            winCheck = false;
+            continue;
+        }
+    }
+    return (0);
+}
+
 bool userInput(int userTurn, int board[][7], int *R, int *C){ // User Input function
     int userClm;//Selected user column
     int count;
     
+
+    //This function outputs the current board, it does not store any data
     do{
         std::cout << "Player #" << userTurn <<"'s Turn ("; 
         if(userTurn == 1){
@@ -17,31 +110,20 @@ bool userInput(int userTurn, int board[][7], int *R, int *C){ // User Input func
         std::cout << ")  :  Enter Your Move  :";
 
         std::cin >> userClm;
-        if(userClm > 0 && userClm <= 7){
-            for(int i = 0; i < 6; i++){
-                for(int j = 1; j < 7; j++){
-                    if(board[i][j] != 0){
-                        count += 1;
-                        if(count >= 6){
-                            count == 0;
-                            break;
-                        }
-                    }
-                    else{
-                        std::cout << " \n\n Invalid move column is FULL \n" << std::endl;
-                        continue;
-                    }
-                }
-            }
-            for(int i = 0; i < 7; i++){
+        if(userClm > 0 && userClm <= 7){ 
+            for(int i = 0; i < 7; i++){ //Returns modifed Columns and Row 
                 if(board[i][userClm - 1] == 0 ){
                     *R = i;
                     *C = userClm - 1;
                     return true;
                 }
+                if(i >= 5){
+                    std::cout << " \n\n\nInvalid move column is full, please try again\n" << std::endl;
+                    break;
+                }
             }
-
         }
+
         else{
             std::cout << " \n\n Invalid move please try again \n" << std::endl;
             continue;
@@ -124,7 +206,6 @@ bool winFunc(int board[][7], bool win){ // Win Check
                         break;
                     }
                 }
-               
             }
             else{
                 count = 0;
@@ -149,19 +230,17 @@ bool winFunc(int board[][7], bool win){ // Win Check
                         count = 0;
                         break;
                     }
-                }
-               
+                } 
             }
             else{
                 count = 0;
             }
         }
     }
-
     return(win);
 }
 
-int startFunc(int userTurn){
+int startFunc(int userTurn){ //Starts the prompt and randomizes the first turn
     userTurn = std::rand() %  2 + 1;
     std::cout << "         Welcome to Connect4!" << std::endl << "The goal is to have 4 X's or O's in a row!" << std::endl;
     std::cout << "   Player: " << userTurn << " was selected to go first " << std::endl;
@@ -170,7 +249,7 @@ int startFunc(int userTurn){
     return (userTurn);
 }
 
-int displayFunc(int board[][7]){
+int displayFunc(int board[][7]){ //Called multiple times to display the current board...Stores nothing
     std::cout <<"\n\n\n\n-----------------------------" << std::endl;
     std::cout << "  1   2   3   4   5   6   7 " << std::endl;
     std::cout <<"-----------------------------" << std::endl;
@@ -193,88 +272,4 @@ int displayFunc(int board[][7]){
     std::cout <<"-----------------------------" << std::endl;
 
     return 0;
-}
-
-int main(){
-    int board[6][7];
-    int userClm = 0;
-    int userTurn = 1;
-    int C,R;
-    bool validMove = true;
-    bool winCheck = false;
-    int playerWin, user1W = 0, user2W = 0;
-    std::string nextGame;
-
-    while(nextGame != "N"){
-        for(int i = 0; i < 6; i++){ //Clears Board
-            for(int j = 0; j < 7; j ++){
-                board[i][j] = 0;
-            }
-        }
-
-        userTurn = startFunc(userTurn);
-    
-        while(!winCheck){
-
-            if(userTurn == 1){ //This if else branch modifys the board based on the user input
-                validMove = userInput(userTurn, board, &R, &C);
-                if(validMove == true){
-                    board[R][C] = 1;
-                    userTurn = 2;
-                    R = 0;
-                    C = 0;
-                    winCheck = winFunc(board, winCheck);
-                    playerWin = 1;
-                    if(winCheck){
-                        user1W++;
-                        break;
-                    }
-                    else{
-                        displayFunc(board);
-                    }
-                }
-            }
-            else if(userTurn == 2){
-                validMove = userInput(userTurn, board, &R, &C);
-                if(validMove == true){
-                    board[R][C] = 2;
-                    userTurn = 1;
-                    R = 0;
-                    C = 0;
-                    winCheck = winFunc(board, winCheck);
-                    playerWin = 2;
-                    if(winCheck){
-                        user2W++;
-                        break;
-                    }
-                    else{ 
-                        displayFunc(board);
-                    }
-                
-                }
-            }
-        }
-
-        displayFunc(board);
-        std::cout <<"-----------------------------" << std::endl;
-        std::cout << "Player #" << playerWin << " has won! \n";
-        std::cout << "Statistics: \n";
-        std::cout <<"Player #1 Wins :" << user1W;
-        std::cout <<"\nPlayer #2 Wins :" << user2W;
-        std::cout <<"\n-----------------------------" << std::endl;
-        std::cout <<"Would you like to continue? [Y/N] :";
-        std::cin >> nextGame;
-
-        if(nextGame == "N"){
-            break;
-        }
-        else{
-            std::cout << "\n\n\n\n";
-            winCheck = false;
-            continue;
-        }
-        
-    }
-
-    return (0);
 }
