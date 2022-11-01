@@ -1,7 +1,14 @@
+//**************************************************************
+//*** Title: Connect4
+//*** Course: CPET-121
+//*** Developer: Kyle Scher
+//*** Date: 10/31/22
+//*** Description: Connect4 the game
+//**************************************************************
+
 #include <iostream>
 #include <iomanip>
 #include <vector>
-
 
 bool userInput(int userTurn, int board[][7], int *R, int *C); //User Input Function
 
@@ -10,7 +17,6 @@ bool winFunc(int board[][7], bool win); //Win checks
 int startFunc(int userTurn); //initialize the game
 
 int displayFunc(int board[][7]); //Displays the current board...Stores no data
-
 
 
 int main(){
@@ -47,6 +53,10 @@ int main(){
                         displayFunc(board);//Output board
                     }
                 }
+                else{
+                    std::cout << "Game Tie!";
+                    break;
+                }
             }
             else if(userTurn == 2){//Same as if statement above but for user #2
                 validMove = userInput(userTurn, board, &R, &C);
@@ -65,6 +75,10 @@ int main(){
                         displayFunc(board);
                     }
                 
+                }
+                else{
+                    std::cout << "Game Tie!";
+                    break;
                 }
             }
         }
@@ -96,10 +110,20 @@ int main(){
 bool userInput(int userTurn, int board[][7], int *R, int *C){ // User Input function
     int userClm;//Selected user column
     int count;
-    
-
+    int tie = 0;
     //This function outputs the current board, it does not store any data
+    
     do{
+        for(int i = 0; i < 6; i++){ //Checks for tie game!
+            for(int j = 0; j < 7; j++){
+                if(board[i][j] != 0){
+                    tie += 1;
+                    if(tie >= 42 ){
+                        return false;
+                    }
+                }
+            }
+        }
         std::cout << "Player #" << userTurn <<"'s Turn ("; 
         if(userTurn == 1){
             std::cout << "X";
@@ -109,6 +133,7 @@ bool userInput(int userTurn, int board[][7], int *R, int *C){ // User Input func
         } 
         std::cout << ")  :  Enter Your Move  :";
 
+        
         std::cin >> userClm;
         if(userClm > 0 && userClm <= 7){ 
             for(int i = 0; i < 7; i++){ //Returns modifed Columns and Row 
@@ -128,10 +153,9 @@ bool userInput(int userTurn, int board[][7], int *R, int *C){ // User Input func
             std::cout << " \n\n Invalid move please try again \n" << std::endl;
             continue;
         }
-        
+
     }while(userClm);
 
-    return 0;
 }
 
 bool winFunc(int board[][7], bool win){ // Win Check
@@ -253,6 +277,7 @@ int displayFunc(int board[][7]){ //Called multiple times to display the current 
     std::cout <<"\n\n\n\n-----------------------------" << std::endl;
     std::cout << "  1   2   3   4   5   6   7 " << std::endl;
     std::cout <<"-----------------------------" << std::endl;
+    /*Dont copy this code, its public for a reason, not for you to cheat*/
     for(int i = 5; i >= 0; i--){
         for(int j = 0; j < 7; j ++){
             std::cout <<"| "; 
