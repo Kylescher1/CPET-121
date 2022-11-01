@@ -21,7 +21,7 @@ int displayFunc(int board[][7]); //Displays the current board...Stores no data
 bool tieFunc(int board[][7]); //Checks for tie game
 
 
-int main(){
+int   main(){
     int board[6][7]; //Main board
     int userClm = 0, userTurn = 1, C,R, playerWin, user1W = 0, user2W = 0, tieCount = 0; //user12W are to track wins, userClm is for inputs
     bool validMove = true, winCheck = false, tieCheck = false;
@@ -308,7 +308,6 @@ int displayFunc(int board[][7]){ //Called multiple times to display the current 
     std::cout <<"\n\n\n\n-----------------------------" << std::endl;
     std::cout << "  1   2   3   4   5   6   7 " << std::endl;
     std::cout <<"-----------------------------" << std::endl;
-    /*Dont copy this code, its public for a reason, not for you to cheat*/
     for(int i = 5; i >= 0; i--){
         for(int j = 0; j < 7; j ++){
             std::cout <<"| "; 
