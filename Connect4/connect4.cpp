@@ -118,6 +118,7 @@ int   main(){
 
         //Game loop
         if(nextGame == "N"){
+            std::cout << "Exiting program....";
             break;
         }
         else{
