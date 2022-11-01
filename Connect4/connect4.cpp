@@ -18,11 +18,13 @@ int startFunc(int userTurn); //initialize the game
 
 int displayFunc(int board[][7]); //Displays the current board...Stores no data
 
+bool tieFunc(int board[][7]); //Checks for tie game
+
 
 int main(){
     int board[6][7]; //Main board
-    int userClm = 0, userTurn = 1, C,R, playerWin, user1W = 0, user2W = 0; //user12W are to track wins, userClm is for inputs
-    bool validMove = true, winCheck = false;
+    int userClm = 0, userTurn = 1, C,R, playerWin, user1W = 0, user2W = 0, tieCount = 0; //user12W are to track wins, userClm is for inputs
+    bool validMove = true, winCheck = false, tieCheck = false;
     std::string nextGame;
 
     while(nextGame != "N"){ //Quits the main game loop if 
@@ -54,9 +56,10 @@ int main(){
                     }
                 }
                 else{
-                    std::cout << "Game Tie!";
-                    break;
+                    std::cout << " \n\n\nInvalid move column is full, you have lost you turn!\n" << std::endl;
+                    userTurn == 2; 
                 }
+    
             }
             else if(userTurn == 2){//Same as if statement above but for user #2
                 validMove = userInput(userTurn, board, &R, &C);
@@ -77,22 +80,41 @@ int main(){
                 
                 }
                 else{
-                    std::cout << "Game Tie!";
-                    break;
+                    std::cout << " \n\n\nInvalid move column is full, you have lost you turn!\n" << std::endl;
+                    userTurn = 1;
                 }
+            }
+           
+
+            tieCheck = tieFunc(board); //Checks for tie game
+            if(tieCheck){
+                tieCount += 1;
+                std::cout <<"Tie game! \nThere have been " << tieCount << " tie(s)!";
+                std::cout << "Statistics: \n";
+                std::cout <<"Player #1 Wins :" << user1W;
+                std::cout <<"\nPlayer #2 Wins :" << user2W;
+                goto endGame;//Gos to the end situatuion 
+            }
+            else{
+                continue;
             }
         }
 
-        //Output for win situation  
-        displayFunc(board); 
-        std::cout <<"-----------------------------" << std::endl;
-        std::cout << "Player #" << playerWin << " has won! \n";
-        std::cout << "Statistics: \n";
-        std::cout <<"Player #1 Wins :" << user1W;
-        std::cout <<"\nPlayer #2 Wins :" << user2W;
-        std::cout <<"\n-----------------------------" << std::endl;
-        std::cout <<"Would you like to continue? [Y/N] :";
-        std::cin >> nextGame;
+        if(winCheck){
+            //Output for win situation  
+            displayFunc(board); 
+            std::cout <<"-----------------------------" << std::endl;
+            std::cout << "Player #" << playerWin << " has won! \n";
+            std::cout << "Statistics: \n";
+            std::cout <<"Player #1 Wins :" << user1W;
+            std::cout <<"\nPlayer #2 Wins :" << user2W;
+            std::cout << "\nThere have been " << tieCount << " tie(s)!";
+            endGame:
+            std::cout <<"\n-----------------------------" << std::endl;
+            std::cout <<"Would you like to continue? [Y/N] :";
+            std::cin >> nextGame;
+        }
+        
 
         //Game loop
         if(nextGame == "N"){
@@ -107,6 +129,26 @@ int main(){
     return (0);
 }
 
+bool tieFunc(int board[][7]){
+    int tie = 0;
+ 
+    for(int i = 0; i < 6; i++){ //Checks for tie game!
+        for(int j = 0; j < 7; j++){
+            if(board[i][j] != 0){
+                tie += 1;
+                if(tie >= 42 ){
+                    return true;
+                }
+            }
+            else{
+                tie = 0;
+            }
+        }
+    }
+
+    return false;
+}
+
 bool userInput(int userTurn, int board[][7], int *R, int *C){ // User Input function
     int userClm;//Selected user column
     int count;
@@ -114,16 +156,6 @@ bool userInput(int userTurn, int board[][7], int *R, int *C){ // User Input func
     //This function outputs the current board, it does not store any data
     
     do{
-        for(int i = 0; i < 6; i++){ //Checks for tie game!
-            for(int j = 0; j < 7; j++){
-                if(board[i][j] != 0){
-                    tie += 1;
-                    if(tie >= 42 ){
-                        return false;
-                    }
-                }
-            }
-        }
         std::cout << "Player #" << userTurn <<"'s Turn ("; 
         if(userTurn == 1){
             std::cout << "X";
@@ -143,8 +175,7 @@ bool userInput(int userTurn, int board[][7], int *R, int *C){ // User Input func
                     return true;
                 }
                 if(i >= 5){
-                    std::cout << " \n\n\nInvalid move column is full, please try again\n" << std::endl;
-                    break;
+                    return false;
                 }
             }
         }
