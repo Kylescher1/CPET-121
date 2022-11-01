@@ -61,30 +61,7 @@ int   main(){
                 }
     
             }
-            else if(userTurn == 2){//Same as if statement above but for user #2
-                validMove = userInput(userTurn, board, &R, &C);
-                if(validMove == true){
-                    board[R][C] = 2;
-                    userTurn = 1;
-                    R = 0;
-                    C = 0;
-                    winCheck = winFunc(board, winCheck);
-                    playerWin = 2;
-                    if(winCheck){
-                        user2W++;
-                        break;
-                    }
-                    else{ 
-                        displayFunc(board);
-                    }
-                
-                }
-                else{
-                    std::cout << " \n\n\nInvalid move column is full, you have lost you turn!\n" << std::endl;
-                    userTurn = 1;
-                }
-            }
-           
+            
 
             tieCheck = tieFunc(board); //Checks for tie game
             if(tieCheck){
