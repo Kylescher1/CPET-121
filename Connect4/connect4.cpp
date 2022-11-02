@@ -28,6 +28,7 @@ int   main(){
     std::string nextGame;
 
     while(nextGame != "N"){ //Quits the main game loop if 
+    
         for(int i = 0; i < 6; i++){ //Clears Board
             for(int j = 0; j < 7; j ++){
                 board[i][j] = 0;
@@ -36,55 +37,45 @@ int   main(){
 
         userTurn = startFunc(userTurn); //Game Starts
     
-        while(!winCheck){
+        while(!winCheck){ //Main logic
 
-            if(userTurn == 1){ //Main logic
-                validMove = userInput(userTurn, board, &R, &C); //Checks valid move
-                if(validMove == true){
+            validMove = userInput(userTurn, board, &R, &C); //Checks valid move
+            if(validMove == true){
+                if(userTurn == 1){
                     board[R][C] = 1;
                     userTurn = 2;
-                    R = 0;
-                    C = 0;
-                    winCheck = winFunc(board, winCheck);//Checks win
                     playerWin = 1;
-                    if(winCheck){
-                        user1W++;
-                        break;
-                    }
-                    else{
-                        displayFunc(board);//Output board
-                    }
                 }
                 else{
-                    std::cout << " \n\n\nInvalid move column is full, you have lost you turn!\n" << std::endl;
-                    userTurn == 2; 
-                }
-    
-            }
-            else if(userTurn == 2){//Same as if statement above but for user #2
-                validMove = userInput(userTurn, board, &R, &C);
-                if(validMove == true){
                     board[R][C] = 2;
                     userTurn = 1;
-                    R = 0;
-                    C = 0;
-                    winCheck = winFunc(board, winCheck);
                     playerWin = 2;
-                    if(winCheck){
-                        user2W++;
-                        break;
-                    }
-                    else{ 
-                        displayFunc(board);
-                    }
+                }
                 
+                //Resets indicator values 
+                R = 0; 
+                C = 0;
+
+                winCheck = winFunc(board, winCheck); //Checks for win
+                if(winCheck){
+                    user1W++;
+                    break;
                 }
                 else{
-                    std::cout << " \n\n\nInvalid move column is full, you have lost you turn!\n" << std::endl;
-                    userTurn = 1;
+                    displayFunc(board);//Output board
                 }
             }
-           
+            else{
+                std::cout << " \n\n\nInvalid move column is full, you have lost you turn!\n" << std::endl; //Invalid moves
+                if(userTurn == 1){
+                    userTurn = 2;
+                    playerWin = 1;
+                }
+                else{
+                    userTurn = 1;
+                    playerWin = 2;
+                }
+            }
 
             tieCheck = tieFunc(board); //Checks for tie game
             if(tieCheck){
