@@ -1,4 +1,4 @@
-# CPET-121 Computational Problem Solving-121 
+# CPET-121 Computational Problem Solving
 Rochester Insitute of Technology - RIT 
 
 Prof Y. Li. 
