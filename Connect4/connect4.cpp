@@ -171,13 +171,17 @@ bool userInput(int userTurn, int board[][7], int *R, int *C){ // User Input func
                 }
             }
         }
-
+        else if(userClm = 0){
+            std::cout << " \n\n Invalid move please try again \n" << std::endl;
+            continue;
+        }
         else{
             std::cout << " \n\n Invalid move please try again \n" << std::endl;
             continue;
         }
 
     }while(userClm);
+
 
 }
 
