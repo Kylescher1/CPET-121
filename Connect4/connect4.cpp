@@ -81,7 +81,7 @@ int   main(){
             if(tieCheck){
                 tieCount += 1;
                 std::cout <<"Tie game! \nThere have been " << tieCount << " tie(s)!";
-                std::cout << "Statistics: \n";
+                std::cout << "\nStatistics: \n";
                 std::cout <<"Player #1 Wins :" << user1W;
                 std::cout <<"\nPlayer #2 Wins :" << user2W;
                 goto endGame;//Gos to the end situatuion 
