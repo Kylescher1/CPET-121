@@ -6,7 +6,7 @@
 //*** Description: Connect4 the game
 //**************************************************************
 
-//Done
+//This project is done, still has a few bugs
 
 #include <iostream>
 #include <iomanip>
