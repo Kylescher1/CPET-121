@@ -1,4 +1,5 @@
-# Computational Problem Solving - 121
-Prof Y. Li.
+# CPET-121 Computational Problem Solving
+Rochester Insitute of Technology - RIT 
 
-All files from 2022 Fall Semester 
+Prof Y. Li. 
+08/11/2022-12/15/2022
