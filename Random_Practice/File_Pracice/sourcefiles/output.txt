@@ -1,0 +1,4 @@
+The maximum is :20
+The minimum is :-13
+The sum is :22
+The average is :2
