@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <string>
 #include <vector>
+
 std::vector<int> ranfill(std::vector<int> & vect){
 
     for(int i = 0; i <= 10000; i++){
@@ -46,16 +47,21 @@ int main (){
     int result;
     bool found = false;
     std::vector <int> vect;
+    std::string quit;
     //Press R to randomize dataset
     //Enter a number to see how many times it appears and where, also some stats like percentage  
 
-    std::cout << "Randomizing a list of 10,000 integers";
-    ranfill(vect);
-    
-    std::cout << "\nPlease enter the value you are searching for : ";
-    std::cin >> target;
+    while(quit != "N"){
+        std::cout << "Randomizing a list of 10,000 integers";
+        ranfill(vect);
+        
+        std::cout << "\nPlease enter the value you are searching for : ";
+        std::cin >> target;
+        findMe(target, vect);
 
-    findMe(target, vect);
+        std::cout << "\nRandomize again? [Y/N] :";
+        std::cin >> quit;
+    }
 
     return 0;
 }
