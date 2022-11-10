@@ -4,7 +4,9 @@
 //*** Developer: Kyle Scher
 //*** Date: 10/31/22
 //*** Description: Connect4 the game
+//*** This project is complete
 //**************************************************************
+
 
 #include <iostream>
 #include <iomanip>
