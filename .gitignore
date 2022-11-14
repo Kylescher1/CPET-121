@@ -2,10 +2,12 @@
 *.log
 *.gitattributes
 *.exe
-.vcxproj
-.vc
-.vscode.vscode
+*.vcxproj
+*.vc
+*.vscode.vscode
 C:\Github\CPET-Random\Lab_8.15.exe
 *.exe
 *.gitattributes
 *.opendb
+*.vcxproj.filters
+*.vcxproj.user
