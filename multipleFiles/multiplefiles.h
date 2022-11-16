@@ -1,6 +1,10 @@
 #ifndef MULTIPLEFILES_H_INCLUDED
 #define MULTIPLEFILES_H_INCLUDED
 
-void equivDuct(double arg1, double arg2);
+const float PARAMETER_RATIO = 1.3;
+const float PARAMETER_POWER = 0.625;
+const float PARAMETER_POWER2 = 0.25;
+double CalEquivDuct(double, double);
+
 
 #endif // !DUCTS_H_INCLUDED
