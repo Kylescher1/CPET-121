@@ -2,7 +2,7 @@
 #include <cmath>
 #include <iostream>
 
-double CalEquivDuct(double width , double height) {
+float CalEquivDuct(double width, double height) {
 
 	float dE = 0;
 
@@ -10,8 +10,9 @@ double CalEquivDuct(double width , double height) {
 	width = pow(width, 2);
 	height = pow(height, 3);
 
-	std::cout << 
+	dE = (PARAMETER_RATIO * pow((width * height), PARAMETER_POWER)) / pow((width + height), PARAMETER_POWER2);
 
 	return dE;
 
 }
+

@@ -1,4 +1,4 @@
-﻿  main.cpp
-  math.cpp
-  Generating Code...
+﻿  math.cpp
+C:\Github\CPET-121\multipleFiles\multiplefiles.h(4,34): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Github\CPET-121\multipleFiles\math.cpp(13,66): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   multipleFiles.vcxproj -> C:\Github\CPET-121\multipleFiles\x64\Debug\multipleFiles.exe
