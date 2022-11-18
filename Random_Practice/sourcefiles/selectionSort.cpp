@@ -64,17 +64,26 @@ void selectionSort(int d[]){
 	bool swapped = false;
     int curMin;
     int curV;
+	int nextElement;
+
 
 	for(int i = 0; i < SIZE - 1; i++){
-        curV = d[i];
-        for(int j = 0; j < SIZE - 1; j++ ){
-            if(d[i] < d)
-                if element < currentMinimum
+		for(int j = 0; j < SIZE - 1; j++){
+			curV = d[j];
+			curMin = d[j + 1];
+			if(curMin < curV){
+				curMin = d[j];
+				swapped = true;
+			}
+		}
+		if(swapped){
+			int swap1 = curV;
+			int swap2 = curMin;
+			d[
+		}
+	}  
 
-                set element as new minimum
 
-            swap minimum with first unsorted position
-        }
-    }
+	
 }
 
