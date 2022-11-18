@@ -15,7 +15,7 @@ std::vector<int> ranfill(std::vector<int> & vect){
     return vect;
 }
 
-void findMe(int target, std::vector<int> & vect){
+void binarySearch(int target, std::vector<int> & vect){
     bool found;
     int start = 0, mid = 0, last = 0;
 
@@ -57,7 +57,7 @@ int main (){
         
         std::cout << "\nPlease enter the value you are searching for : ";
         std::cin >> target;
-        findMe(target, vect);
+        binarySearch(target, vect);
 
         std::cout << "\nRandomize again? [Y/N] :";
         std::cin >> quit;
