@@ -74,6 +74,7 @@ void bubbleSort(int d[]){
 				swapped = true;
 			}
 		}
+		
 		if (swapped == false){
 			break;
 		}
