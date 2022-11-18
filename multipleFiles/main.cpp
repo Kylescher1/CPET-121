@@ -3,11 +3,19 @@
 
 int main()
 {
-	int num1 = 0;
-	int num2 = 0;
+	float width = 0;
+	float height = 0;
+	float dE;
 
+	std::cout << "Please enter Width: ";
+	std::cin >> width;
 
-	equivDuct(num1, num2);
+	std::cout << "Please enter Height: ";
+	std::cin >> height;
+
+	dE = CalEquivDuct(width, height);
+
+	std::cout << "\nDuct is equal to:" << dE << std::endl;
 
 	return 0;
 }

@@ -2,18 +2,17 @@
 #include <cmath>
 #include <iostream>
 
-void equivDuct(double Width , double height) {
+float CalEquivDuct(double width, double height) {
 
-	std::cout << "Please enter Width: ";
-	std::cin >> Width;
-
-	std::cout << "Please enter Height: ";
-	std::cin >> Height;
+	float dE = 0;
 
 
-	Width = pow(Width, 2);
-	Height = pow(Height, 3);
+	width = pow(width, 2);
+	height = pow(height, 3);
 
-	std::cout << arg1 << " " << arg2;
+	dE = (PARAMETER_RATIO * pow((width * height), PARAMETER_POWER)) / pow((width + height), PARAMETER_POWER2);
+
+	return dE;
 
 }
+
