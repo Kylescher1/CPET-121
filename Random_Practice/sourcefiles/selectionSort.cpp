@@ -19,7 +19,7 @@ void Create_Data(int d[]);
 
 void Print_Data(int d[]);
 
-void bubbleSort(int d[]);
+void selectionSort(int d[]);
 
 int main(void)
 {
@@ -62,28 +62,26 @@ void Print_Data(int d[])
 
 void selectionSort(int d[]){
 	bool swapped = false;
-    int curMin;
+    int nextV;
+	int min;
+	int index;
     int curV;
 	int nextElement;
 
 
-	for(int i = 0; i < SIZE - 1; i++){
-		for(int j = 0; j < SIZE - 1; j++){
-			curV = d[j];
-			curMin = d[j + 1];
-			if(curMin < curV){
-				curMin = d[j];
+	for(int i = 0; i < SIZE ; i++){
+		min = d[i];
+		for(int j = i; j < SIZE ; j++){
+			if(d[j] < min){
+				min = d[j];
+				index = j;
 				swapped = true;
-			}
+			}	
 		}
 		if(swapped){
-			int swap1 = curV;
-			int swap2 = curMin;
-			d[
+			d[index] = d[i];
+			d[i] = min;
 		}
-	}  
-
-
-	
+	}  	
 }
 
