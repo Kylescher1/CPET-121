@@ -1,0 +1,6 @@
+﻿  functions.cpp
+C:\Github\CPET-121\PJ_4\Project4_Hangman\functions.cpp(67,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  main.cpp
+  Generating Code...
+main.obj : error LNK2019: unresolved external symbol "void __cdecl display(int)" (?display@@YAXH@Z) referenced in function main
+C:\Github\CPET-121\PJ_4\Project4_Hangman\x64\Debug\Project4_Hangman.exe : fatal error LNK1120: 1 unresolved externals
