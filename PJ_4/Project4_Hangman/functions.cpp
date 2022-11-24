@@ -5,6 +5,7 @@
 #include <string>
 #include <stdio.h>
 #include <ctype.h>
+#include <cctype>
 #include "hangPerson.h"
 
 void display(int input, char guess, std::string word, std::vector<char> &vectWord, std::vector<char> &vectDisplay) {
@@ -131,7 +132,7 @@ char gameInput(char &guess, int instruction, std::vector <char>& vectInputs) {
                     goto start;
                 }
             }
-            if (isalpha(guess)) {//checks for lowecase letter
+            if (isalpha(guess) && islower(guess)) {//checks for lowecase letter
                 vectInputs.push_back(guess);
                 valid = true;
             }
