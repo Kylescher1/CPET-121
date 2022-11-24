@@ -1,0 +1,3 @@
+The word is strength
+User has guessed l, which is a invalid guess
+The user failed to find the word and has been hung...

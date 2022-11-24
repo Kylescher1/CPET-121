@@ -63,9 +63,6 @@ void display(int input, char guess, std::string word, std::vector<char> &vectWor
             vectDisplay.at(i) = guess;
         }
     }
-
-    
-
     for (int i = 0; i < wordLength; i++) {//todo char insert
         std::cout << vectDisplay.at(i) << " ";
     }
@@ -76,18 +73,13 @@ void display(int input, char guess, std::string word, std::vector<char> &vectWor
     }
 
 }
-
-
-
-std::string selectWord(std::string word) {
+std::string selectWord(std::string word) {//Random word selection 
     std::ifstream inFile;
     std::string filename;
     int total_lines = 0;
     filename = "words_1.txt";
     std::string line;
     std::vector<std::string> lines;
-
-
 
     inFile.open(filename.c_str());
 
@@ -96,13 +88,11 @@ std::string selectWord(std::string word) {
     }
     srand(time(NULL));
    
-
     while (std::getline(inFile, line))
     {
         total_lines++;
         lines.push_back(line);
     }
-
 
     inFile.close();
 
@@ -112,12 +102,6 @@ std::string selectWord(std::string word) {
     return word ;
 }
 
-//gameInput
-/*
-only takes lowercase input
-passes to the main function
-verifes input
-*/
 char gameInput(char &guess, int instruction, std::vector <char>& vectInputs) {
     bool valid = false;
     std::cout << "\n\nPlease enter your guess :";
@@ -137,7 +121,7 @@ char gameInput(char &guess, int instruction, std::vector <char>& vectInputs) {
                 valid = true;
             }
             else {
-                std::cout << "This is a letter!\nPlease try again :";
+                std::cout << "This is not a valid input!\nPlease try again :";
                 continue;
             }
         }
@@ -148,7 +132,44 @@ char gameInput(char &guess, int instruction, std::vector <char>& vectInputs) {
 
 
 //recordResults
-/*
-saves results
-*/
+void recordResults(std::string word, char guess, bool valid, bool goodMove) {
+    std::ofstream outFile;
+    std::string filename = "results_1.txt";
 
+    outFile.open(filename.c_str());
+
+    if (!outFile.is_open()) {
+        std::cout << "Output file error!";
+    }
+
+    if (!valid) {
+        outFile << "\nUser has guessed """ << guess << """, which is a ";
+        if (goodMove) {
+            outFile << "valid guess"; //Records user input with valid find or invalid find. Also turn count
+        }
+        else {
+            outFile << "invalid guess";
+        }
+    }
+  
+
+    if (valid) {//Records if user found word
+        outFile << "\nThe user found the word!";
+    }
+    else {
+        outFile << "\nThe user failed to find the word and has been hung...";
+    }
+    outFile.close();
+}
+void recordResults(std::string word) {
+    std::ofstream outFile;
+    std::string filename = "results_1.txt";
+    outFile.open(filename.c_str());
+
+    if (!outFile.is_open()) {
+        std::cout << "Output file error!";
+    }
+    outFile << "The word is " << word;//Record word
+
+    outFile.close();
+}

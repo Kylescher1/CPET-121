@@ -15,7 +15,7 @@ int main() {
     char guess = ' ';
     int turn = 0;
 
-    std::cout << "Welcome to hangperson!\nRandomly picking a word..." << std::endl;
+    std::cout << "Welcome to hangperson!\nOnly will accept lowercase letter input.\nRandomly picking a word..." << std::endl;
 
     while (playAgain) {
         word = selectWord(word);//Random word selection
@@ -30,9 +30,11 @@ int main() {
 
         display(turn, guess, word, vectWord, vectDisplay);
 
+        void recordResults(std::string word);
+
         while (!valid) {
             int count = 0;
-            int goodMove = false;
+            bool goodMove = false;
 
             gameInput(guess, 1, vectInputs);
             for (int i = 0; i < wordLength; i++) {
@@ -43,6 +45,8 @@ int main() {
             if (!goodMove) {
                 turn++;
                 std::cout <<"\n\n" << guess << " is not in this word!";
+                goodMove = false;
+                recordResults(word, guess, valid, goodMove);
             }
             display(turn, guess, word, vectWord, vectDisplay);
             for (int i = 0; i < wordLength; i++) {
@@ -52,12 +56,15 @@ int main() {
                 if (count == wordLength) {
                     std::cout << "\n\n\nYou win!\nYour word was " << word;
                     valid = true;
+                    recordResults(word, guess, valid, goodMove);
                     break;
                 }
             }
             if (turn == 8) {
                 std::cout << "\n\n\nYou loose!\nThe word was " << word;
-                valid = true;
+                valid = false;
+                goodMove = false;
+                recordResults(word, guess, valid, goodMove);
                 break;
             }
         }
@@ -77,3 +84,4 @@ int main() {
         }
     }
 }
+//todo fix results window 
