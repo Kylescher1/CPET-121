@@ -23,6 +23,7 @@ int main() {
         std::vector<char> vectWord(word.begin(), word.end());
         std::vector<char> vectInputs;
         std::vector<char> vectDisplay;
+
         bool goodMove = false;
 
         for (int i = 0; i < wordLength; i++) {//Fill the display vector with astericks. Needs to be done in main
@@ -31,7 +32,7 @@ int main() {
 
 
         display(turn, guess, word, vectWord, vectDisplay);
-
+        void recordResults(std::string word);
 
         while (!valid) {
             goodMove = false;
