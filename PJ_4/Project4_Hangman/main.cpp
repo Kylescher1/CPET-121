@@ -22,14 +22,13 @@ int main() {
         int wordLength = word.length();
         std::vector<char> vectWord(word.begin(), word.end());
         std::vector<char> vectInputs;
-
         std::vector<char> vectDisplay;
+
         for (int i = 0; i < wordLength; i++) {//Fill the display vector with astericks. Needs to be done in main
             vectDisplay.push_back('*');
         }
 
         display(turn, guess, word, vectWord, vectDisplay);
-
         void recordResults(std::string word);
 
         while (!valid) {
@@ -69,7 +68,6 @@ int main() {
             }
         }
         turn = 0;
-        //Record Results 
 
         std::cout << "\n\n\nWould you like to play again? [Y/N] :";
         std::cin >> play;
