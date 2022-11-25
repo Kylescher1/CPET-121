@@ -1,8 +1,0 @@
-﻿  functions.cpp
-C:\Github\CPET-121\PJ_4\Project4_Hangman\functions.cpp(58,31): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Github\CPET-121\PJ_4\Project4_Hangman\functions.cpp(88,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Github\CPET-121\PJ_4\Project4_Hangman\functions.cpp(137,48): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  main.cpp
-C:\Github\CPET-121\PJ_4\Project4_Hangman\main.cpp(22,39): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
-  Project4_Hangman.vcxproj -> C:\Github\CPET-121\PJ_4\Project4_Hangman\x64\Debug\Project4_Hangman.exe
