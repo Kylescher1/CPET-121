@@ -1,15 +1,8 @@
 ﻿  functions.cpp
 C:\Github\CPET-121\PJ_4\Project4_Hangman\functions.cpp(58,31): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Github\CPET-121\PJ_4\Project4_Hangman\functions.cpp(89,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Github\CPET-121\PJ_4\Project4_Hangman\functions.cpp(88,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Github\CPET-121\PJ_4\Project4_Hangman\functions.cpp(137,48): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   main.cpp
 C:\Github\CPET-121\PJ_4\Project4_Hangman\main.cpp(22,39): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Github\CPET-121\PJ_4\Project4_Hangman\main.cpp(49,17): error C2660: 'recordResults': function does not take 4 arguments
-C:\Github\CPET-121\PJ_4\Project4_Hangman\main.cpp(33,14): message : see declaration of 'recordResults'
-C:\Github\CPET-121\PJ_4\Project4_Hangman\main.cpp(49,17): message : while trying to match the argument list '(std::string, char, bool, bool)'
-C:\Github\CPET-121\PJ_4\Project4_Hangman\main.cpp(59,21): error C2660: 'recordResults': function does not take 4 arguments
-C:\Github\CPET-121\PJ_4\Project4_Hangman\main.cpp(33,14): message : see declaration of 'recordResults'
-C:\Github\CPET-121\PJ_4\Project4_Hangman\main.cpp(59,21): message : while trying to match the argument list '(std::string, char, bool, bool)'
-C:\Github\CPET-121\PJ_4\Project4_Hangman\main.cpp(67,17): error C2660: 'recordResults': function does not take 4 arguments
-C:\Github\CPET-121\PJ_4\Project4_Hangman\main.cpp(33,14): message : see declaration of 'recordResults'
-C:\Github\CPET-121\PJ_4\Project4_Hangman\main.cpp(67,17): message : while trying to match the argument list '(std::string, char, bool, bool)'
   Generating Code...
+  Project4_Hangman.vcxproj -> C:\Github\CPET-121\PJ_4\Project4_Hangman\x64\Debug\Project4_Hangman.exe

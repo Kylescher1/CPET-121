@@ -71,7 +71,6 @@ void display(int input, char guess, std::string word, std::vector<char> &vectWor
         std::cout << "_ ";
 
     }
-
 }
 std::string selectWord(std::string word) {//Random word selection 
     std::ifstream inFile;
@@ -132,9 +131,12 @@ char gameInput(char &guess, int instruction, std::vector <char>& vectInputs) {
 
 
 //recordResults
-void recordResults(std::string word, char guess, bool valid, bool goodMove) {
+void recordResults(std::string word, char guess, bool valid, bool goodMove, std::vector <char> vectInputs, int turn) {
     std::ofstream outFile;
     std::string filename = "results_1.txt";
+    int wordLength = wordLength = word.length();
+    std::vector<char> vectWord(word.begin(), word.end());
+    turn = 0;
 
     outFile.open(filename.c_str());
 
@@ -142,34 +144,43 @@ void recordResults(std::string word, char guess, bool valid, bool goodMove) {
         std::cout << "Output file error!";
     }
 
-    if (!valid) {
-        outFile << "\nUser has guessed """ << guess << """, which is a ";
-        if (goodMove) {
-            outFile << "valid guess"; //Records user input with valid find or invalid find. Also turn count
+    outFile << "The word is " << word;
+    outFile << "\n";
+
+    for (int i = 0; i < vectInputs.size(); i++) {
+        outFile << "\nThe user has guessed " << vectInputs.at(i) << " which was ";
+
+        for (int j = 0; j < wordLength; j++) {
+            if (vectInputs.at(i) == vectWord.at(j)) {
+                goodMove = true;
+                break;
+            }
+            else {
+                goodMove = false;
+            }
+        }
+
+        if (!goodMove) {
+            turn++;
+        }
+
+        if (!goodMove) {//Output if the letter guessed by a user is not in the word
+            outFile << " not found in this word!";
+            outFile << " The error count is :" << turn;
+
         }
         else {
-            outFile << "invalid guess";
+            outFile << "found in the word!";
         }
+        outFile << std::endl;
     }
-  
 
-    if (valid) {//Records if user found word
-        outFile << "\nThe user found the word!";
+    if (goodMove && valid) {
+        outFile << "\nThe user found the word, which was " << word;
     }
     else {
         outFile << "\nThe user failed to find the word and has been hung...";
     }
-    outFile.close();
-}
-void recordResults(std::string word) {
-    std::ofstream outFile;
-    std::string filename = "results_1.txt";
-    outFile.open(filename.c_str());
-
-    if (!outFile.is_open()) {
-        std::cout << "Output file error!";
-    }
-    outFile << "The word is " << word;//Record word
-
+ 
     outFile.close();
 }

@@ -22,54 +22,62 @@ int main() {
         int wordLength = word.length();
         std::vector<char> vectWord(word.begin(), word.end());
         std::vector<char> vectInputs;
-
         std::vector<char> vectDisplay;
+        bool goodMove = false;
+
         for (int i = 0; i < wordLength; i++) {//Fill the display vector with astericks. Needs to be done in main
             vectDisplay.push_back('*');
         }
 
+
         display(turn, guess, word, vectWord, vectDisplay);
 
-        void recordResults(std::string word);
 
         while (!valid) {
+            goodMove = false;
             int count = 0;
-            bool goodMove = false;
 
             gameInput(guess, 1, vectInputs);
+
             for (int i = 0; i < wordLength; i++) {
                 if (guess == vectWord.at(i)) {
                     goodMove = true;
                 }
             }
-            if (!goodMove) {
+
+            if (!goodMove) {//Output if the letter guessed by a user is not in the word
                 turn++;
                 std::cout <<"\n\n" << guess << " is not in this word!";
                 goodMove = false;
-                recordResults(word, guess, valid, goodMove);
             }
+
             display(turn, guess, word, vectWord, vectDisplay);
-            for (int i = 0; i < wordLength; i++) {
+
+            for (int i = 0; i < wordLength; i++) {//Counts errors and win
                 if (vectDisplay.at(i) == vectWord.at(i)) {
                     count++;
                 }
                 if (count == wordLength) {
                     std::cout << "\n\n\nYou win!\nYour word was " << word;
                     valid = true;
-                    recordResults(word, guess, valid, goodMove);
+                    goodMove = true;;
                     break;
                 }
             }
-            if (turn == 8) {
+
+            if (turn == 8) {//Stops the code when the game is lost
                 std::cout << "\n\n\nYou loose!\nThe word was " << word;
                 valid = false;
-                goodMove = false;
-                recordResults(word, guess, valid, goodMove);
+                goodMove = false;;
                 break;
             }
+
+
         }
-        turn = 0;
-        //Record Results 
+
+        recordResults(word, guess, valid, goodMove, vectInputs , turn);
+
+        turn = 0;//Reset error count
 
         std::cout << "\n\n\nWould you like to play again? [Y/N] :";
         std::cin >> play;
