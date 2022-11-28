@@ -71,8 +71,6 @@ int main() {
                 goodMove = false;;
                 break;
             }
-
-
         }
 
         recordResults(word, guess, valid, goodMove, vectInputs, turn);

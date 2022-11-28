@@ -1,21 +1,21 @@
-The word is computer
+The word is test
 
 The user has guessed a which was  not found in this word! The error count is :1
 
-The user has guessed u which was found in the word!
-
-The user has guessed t which was found in the word!
-
-The user has guessed o which was found in the word!
-
-The user has guessed c which was found in the word!
-
-The user has guessed m which was found in the word!
-
-The user has guessed p which was found in the word!
-
 The user has guessed e which was found in the word!
 
-The user has guessed r which was found in the word!
+The user has guessed f which was  not found in this word! The error count is :2
 
-The user found the word!
+The user has guessed g which was  not found in this word! The error count is :3
+
+The user has guessed o which was  not found in this word! The error count is :4
+
+The user has guessed c which was  not found in this word! The error count is :5
+
+The user has guessed j which was  not found in this word! The error count is :6
+
+The user has guessed r which was  not found in this word! The error count is :7
+
+The user has guessed b which was  not found in this word! The error count is :8
+
+The user failed to find the word and has been hung...
