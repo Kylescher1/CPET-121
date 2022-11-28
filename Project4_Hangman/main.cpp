@@ -51,7 +51,7 @@ int main() {
                 goodMove = false;
             }
 
-            display(turn, guess, word, vectWord, vectDisplay);
+            display(turn, guess, word, vectWord, vectDisplay);// Displays the gallows
 
             for (int i = 0; i < wordLength; i++) {//Counts errors and win
                 if (vectDisplay.at(i) == vectWord.at(i)) {
@@ -75,10 +75,11 @@ int main() {
 
         }
 
-        recordResults( word, guess, valid, goodMove, vectInputs, turn);
+        recordResults(word, guess, valid, goodMove, vectInputs, turn);
 
         turn = 0;
 
+        //Game loops 
         std::cout << "\n\n\nWould you like to play again? [Y/N] :";
         std::cin >> play;
         if (play == "Y" || play == "y") {
