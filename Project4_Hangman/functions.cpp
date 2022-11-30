@@ -154,7 +154,7 @@ void recordResults(std::string word, char guess, bool valid, bool goodMove, std:
         }
 
         if (!goodMove) {//Output if the letter guessed by a user is not in the word
-            outFile << " not found in this word!";
+            outFile << "not found in this word!";
             outFile << " The error count is :" << turn;
 
         }
