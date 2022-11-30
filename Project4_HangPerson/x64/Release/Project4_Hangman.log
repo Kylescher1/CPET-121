@@ -1,0 +1,11 @@
+﻿  main.cpp
+C:\Users\jss26\Documents\GitHub\CPET-121\Project4_HangPerson\main.cpp(22,39): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  functions.cpp
+C:\Users\jss26\Documents\GitHub\CPET-121\Project4_HangPerson\functions.cpp(54,31): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jss26\Documents\GitHub\CPET-121\Project4_HangPerson\functions.cpp(82,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\jss26\Documents\GitHub\CPET-121\Project4_HangPerson\functions.cpp(126,48): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 331 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Project4_Hangman.vcxproj -> C:\Users\jss26\Documents\GitHub\CPET-121\Project4_HangPerson\x64\Release\Project4_Hangman.exe
