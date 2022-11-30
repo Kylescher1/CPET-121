@@ -1,5 +1,5 @@
 # CPET-121 Computational Problem Solving
-Rochester Insitute of Technology - RIT 
+Rochester Insitute of Technology 
 
 Kyle Scher
 
