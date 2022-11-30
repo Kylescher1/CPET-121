@@ -15,6 +15,7 @@ int main() {
     char guess = ' ';//users guess
     int turn = 0;//state of the gallows
 
+
     std::cout << "Welcome to hangperson!\nOnly will accept lowercase letter input.\nRandomly picking a word..." << std::endl;
 
     while (playAgain) {
@@ -30,7 +31,6 @@ int main() {
             vectDisplay.push_back('*');
         }
 
-
         display(turn, guess, word, vectWord, vectDisplay);//display the initial gallows
 
         while (!valid) {// main logic loop
@@ -45,9 +45,11 @@ int main() {
                 }
             }
 
+            system("CLS");
+
             if (!goodMove) {//Output if the letter guessed by a user is not in the word
                 turn++;
-                std::cout <<"\n\n" << guess << " is not in this word!";
+                std::cout << guess << " is not in this word!";
                 goodMove = false;
             }
 
@@ -84,7 +86,9 @@ int main() {
         if (play == "Y" || play == "y") {
             playAgain = true;
             valid = false;
-            std::cout << "Clearing the gallows...\nChoosing new word...";
+            system("CLS");
+            std::cout << "Clearing the gallows and choosing new word...";
+            std::cin.clear();
         }
         else {
             playAgain = false;

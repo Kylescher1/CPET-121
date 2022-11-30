@@ -1,3 +1,0 @@
-﻿  main.cpp
-C:\Users\jss26\Documents\GitHub\CPET-121\Project4_Hangman\main.cpp(22,39): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Project4_Hangman.vcxproj -> C:\Users\jss26\Documents\GitHub\CPET-121\Project4_Hangman\x64\Debug\Project4_Hangman.exe

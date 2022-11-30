@@ -174,4 +174,3 @@ void recordResults(std::string word, char guess, bool valid, bool goodMove, std:
     outFile.close();
 }
 
-//test
