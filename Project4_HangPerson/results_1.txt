@@ -1,23 +1,19 @@
-The word is knife
+The word is cliff
 
-The user has guessed t which was not found in this word! The error count is :1
+The user has guessed a which was not found in this word! The error count is :1
 
-The user has guessed e which was found in the word!
-
-The user has guessed q which was not found in this word! The error count is :2
-
-The user has guessed y which was not found in this word! The error count is :3
-
-The user has guessed u which was not found in this word! The error count is :4
+The user has guessed e which was not found in this word! The error count is :2
 
 The user has guessed i which was found in the word!
 
-The user has guessed o which was not found in this word! The error count is :5
+The user has guessed o which was not found in this word! The error count is :3
 
-The user has guessed p which was not found in this word! The error count is :6
+The user has guessed u which was not found in this word! The error count is :4
 
-The user has guessed l which was not found in this word! The error count is :7
+The user has guessed l which was found in the word!
 
-The user has guessed h which was not found in this word! The error count is :8
+The user has guessed f which was found in the word!
 
-The user failed to find the word and has been hung...
+The user has guessed c which was found in the word!
+
+The user found the word!
